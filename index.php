@@ -81,8 +81,6 @@
     <!-- automatisch invullen van rode vakken -->
     <script>
         function rodeVakken() {
-            timeInt();
-            timeAcc();
             WCA();
             TH();
             MH();
@@ -92,6 +90,8 @@
                 var leg = windEl.id.split('_')[0];
                 GS(leg);
             });
+            timeInt();
+            timeAcc();
         }
         function timeInt() {
             var distInputs = document.querySelectorAll('input[id$="_distInt"]');
@@ -217,7 +217,9 @@
             const WCA    = parseFloat(document.getElementById(leg + '_WCA').value);
 
             if ([wind, windV, TT, TAS, WCA].some(v => isNaN(v)) || TAS === 0) {
-                alert ('Niet alle velden zijn ingevuld!')
+                if (Number(leg) === 1) {
+                    alert ('Niet alle velden zijn ingevuld!')
+                }
                 document.getElementById(leg + '_GS').value = '';
                 return;
             }
