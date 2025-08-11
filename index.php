@@ -31,20 +31,40 @@
     </script>
     <script>
         function addRows() {
-
             var oRows = document.getElementById('table2').getElementsByTagName('tr');
             var iRowCount = oRows.length;
-            var iRowCountLessOne = iRowCount-1;
+            var iRowCountLessOne = iRowCount - 1;
 
-            var kleurRoze;
-            var kleurBlauw
-            (iRowCount % 2 === 0) ? kleurRoze = "#f2dcdb" : kleurRoze = "#e6b8b7";
-            (iRowCount % 2 === 0) ? kleurBlauw = "#dce6f1" : kleurBlauw = "#b8cce4";
+            var kleurRoze = (iRowCount % 2 === 0) ? "#f2dcdb" : "#e6b8b7";
+            var kleurBlauw = (iRowCount % 2 === 0) ? "#dce6f1" : "#b8cce4";
 
             var newRow = document.getElementById('table2').insertRow();
-            // newRow = "<td>New row text</td><td>New row 2nd cell</td>"; <-- won't work
-            newRow.innerHTML = "<td><input style='background-color: " + kleurBlauw + "' type=\"text\" value=\"" + (iRowCount - 1) + "&darr;\" onclick=\"PutThroughLegInfo("+iRowCountLessOne+")\" /></td> <td><input type=\"text\" style=\"background-color: " + kleurRoze + "\"/></td> <td><input type=\"text\" style=\"background-color: " + kleurRoze + "\"/></td> <td><input style='background-color: " + kleurBlauw + "' type=\"text\"/></td> <td><input style='background-color: " + kleurBlauw + "' type=\"text\"/></td> <td><input style='background-color: " + kleurBlauw + "' type=\"text\"/></td><td><input style='background-color: " + kleurBlauw + "' type=\"text\"/></td> <td><input style='background-color: " + kleurBlauw + "' type=\"text\"/></td> <td><input style='background-color: " + kleurBlauw + "; width : 100%' type=\"text\" id=\"leg"+iRowCountLessOne+"Name\" /></td> <td><input style='background-color: " + kleurBlauw + "' type=\"text\"/></td><td><input type=\"text\" style=\"background-color: " + kleurRoze + "\"/></td> <td><input style='background-color: " + kleurBlauw + "' type=\"text\"/></td> <td><input type=\"text\" style=\"background-color: " + kleurRoze + "\"/></td> <td><input type=\"text\" style=\"background-color: " + kleurRoze + "\"/></td> <td><input style='background-color: " + kleurBlauw + "' type=\"text\"/></td> <td><input style='background-color: " + kleurBlauw + "' type=\"text\"/></td> <td><input style='background-color: " + kleurBlauw + "' type=\"text\"/></td> <td><input style='background-color: " + kleurBlauw + "' type=\"text\"/></td> <td><input type=\"text\" style=\"background-color: " + kleurRoze + "\"/></td> <td><input type=\"text\" style=\"background-color: " + kleurRoze + "\"/></td>";
+            var leg = iRowCountLessOne;
 
+            newRow.innerHTML =
+                '<td><input id="'+leg+'_leg" style="background-color: ' + kleurBlauw + '" ' +
+                'type="text" value="' + (iRowCount - 1) + '↓" ' +
+                'onclick="PutThroughLegInfo('+leg+')"/></td>' +
+                '<td><input id="'+leg+'_timeAcc" type="text" style="background-color: ' + kleurRoze + '"/></td>' +
+                '<td><input id="'+leg+'_timeInt" type="text" style="background-color: ' + kleurRoze + '"/></td>' +
+                '<td><input id="'+leg+'_ETO" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
+                '<td><input id="'+leg+'_RETO" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
+                '<td><input id="'+leg+'_ATO" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
+                '<td><input id="'+leg+'_MEF" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
+                '<td><input id="'+leg+'_cruise" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
+                '<td><input id="'+leg+'_legName" style="background-color: ' + kleurBlauw + '; width:100%" ' +
+                'type="text"/></td>' +
+                '<td><input id="'+leg+'_frequentie" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
+                '<td><input id="'+leg+'_MH" type="text" style="background-color: ' + kleurRoze + '"/></td>' +
+                '<td><input id="'+leg+'_var" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
+                '<td><input id="'+leg+'_TH" type="text" style="background-color: ' + kleurRoze + '"/></td>' +
+                '<td><input id="'+leg+'_WCA" type="text" style="background-color: ' + kleurRoze + '"/></td>' +
+                '<td><input id="'+leg+'_wind" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
+                '<td><input id="'+leg+'_windV" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
+                '<td><input id="'+leg+'_TT" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
+                '<td><input id="'+leg+'_distInt" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
+                '<td><input id="'+leg+'_disAcc" type="text" style="background-color: ' + kleurRoze + '"/></td>' +
+                '<td><input id="'+leg+'_GS" type="text" style="background-color: ' + kleurRoze + '"/></td>';
         }
     </script>
     <script>
@@ -60,122 +80,161 @@
 
     <!-- automatisch invullen van rode vakken -->
     <script>
-        function rodeVakken()
-        {
-            /*
-            var oRows = document.getElementById('table2').getElementsByTagName('tr');
-            var iRowCount = oRows.length - 2; //altrenate
-
-            for(var i = 1; i<= iRowCount; i++)
-            {
-                alert(i);
-            }
-            */
-
-
-            timeAcc();
+        function rodeVakken() {
             timeInt();
-            MH();
-            TH();
+            timeAcc();
             WCA();
+            TH();
+            MH();
             distAcc();
-            GS();
-        }
-        // Helper functions because I hate copy-pasting if not needed :>
 
-        function toRadians(deg) { return deg * Math.PI / 180; }
-        function normalizeAngle(angle) {
-        let a = angle % 360;
-        if (a < 0) a += 360;
-        return a;
-        }
-        function toMinutes(timeStr) {
-        if (!timeStr) return 0;
-        const parts = timeStr.split(':');
-        if (parts.length === 2) {
-            return parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
-        }
-        return parseFloat(timeStr) || 0;
-        }
-        function formatTime(minutes) {
-        const h = Math.floor(minutes / 60);
-        const m = minutes % 60;
-        return h + ':' + String(m).padStart(2, '0');
-        }
-
-        function timeAcc() {
-        document.querySelectorAll('input[id$="_timeAcc"]').forEach(input => {
-            const leg = input.id.split('_')[0];
-            const intInput = document.getElementById(leg + '_timeInt');
-            if (!intInput.value) {
-            input.value = '';
-            return;
-            }
-            const curr = toMinutes(intInput.value);
-            const prevInput = document.getElementById((+leg - 1) + '_timeAcc');
-            const prev = prevInput && prevInput.value ? toMinutes(prevInput.value) : 0;
-            input.value = formatTime(prev + curr);
+            document.querySelectorAll('input[id$="_wind"]').forEach(function(windEl) {
+                var leg = windEl.id.split('_')[0];
+                GS(leg);
             });
         }
-        function timeInt()
-        {
-
+        function timeInt() {
+            var distInputs = document.querySelectorAll('input[id$="_distInt"]');
+            distInputs.forEach(function(el) {
+                var leg = el.id.split('_')[0];
+                var dist = parseFloat(el.value);
+                var gs = parseFloat(document.getElementById(leg + '_GS').value);
+                var tiElem = document.getElementById(leg + '_timeInt');
+                if (isNaN(dist) || isNaN(gs) || gs === 0) {
+                    tiElem.value = '';
+                } else {
+                    tiElem.value = Math.round((dist / gs) * 60);
+                }
+            });
         }
-        function MH()
-        {
-
+        
+        function timeAcc() {
+            // accumulate time intervals
+            var timeIntElems = document.querySelectorAll('input[id$="_timeInt"]');
+            var legs = Array.from(timeIntElems).map(function(el) {
+                return parseInt(el.id.split('_')[0], 10);
+            }).sort(function(a, b) { return a - b; });
+            legs.forEach(function(leg) {
+                var ti = parseFloat(document.getElementById(leg + '_timeInt').value);
+                var taElem = document.getElementById(leg + '_timeAcc');
+                if (isNaN(ti)) {
+                    taElem.value = '';
+                } else {
+                    if (leg === legs[0]) {
+                        taElem.value = ti;
+                    } else {
+                        var prev = parseFloat(document.getElementById((leg - 1) + '_timeAcc').value);
+                        taElem.value = isNaN(prev) ? ti : prev + ti;
+                    }
+                }
+            });
         }
-        function TH()
-        {
 
+        function MH() {
+            var mhElems = document.querySelectorAll('input[id$="_MH"]');
+            mhElems.forEach(function(el) {
+                var leg       = el.id.split('_')[0];
+                var th        = parseFloat(document.getElementById(leg + '_TH').value);
+                var variation = parseFloat(document.getElementById(leg + '_var').value);
+                if (isNaN(th) || isNaN(variation)) {
+                    el.value = '';
+                } else {
+                    var rawMh = th - variation;
+                    if (rawMh > 359) rawMh -= 360;
+                    if (rawMh <   0) rawMh += 360;
+                    el.value = Math.round(rawMh);
+                }
+            });
         }
-        function WCA()
-        {
 
+        function TH() {
+            var thElems = document.querySelectorAll('input[id$="_TH"]');
+            thElems.forEach(function(el) {
+                var leg = el.id.split('_')[0];
+                var tt  = parseFloat(document.getElementById(leg + '_TT').value);
+                var wca = parseFloat(document.getElementById(leg + '_WCA').value);
+                if (isNaN(tt) || isNaN(wca)) {
+                    el.value = '';
+                } else {
+                    var th = tt + wca;
+                    if (th > 359) th -= 360;
+                    if (th <   0) th += 360;
+                    el.value = Math.round(th);
+                }
+            });
         }
-        function distAcc()
-        {
 
-        }
-        function GS()
-        {
-            //alert('IN GS');
+        function WCA() {
+        const RAD = Math.PI/180;
+        document.querySelectorAll('input[id$="_WCA"]').forEach(el => {
+            const leg   = el.id.split('_')[0];
+            const wind  = parseFloat(document.getElementById(leg + '_wind').value);
+            const windV = parseFloat(document.getElementById(leg + '_windV').value);
+            const tt    = parseFloat(document.getElementById(leg + '_TT').value);
+            const tas   = parseFloat(document.getElementById('TAS').value);
 
-            //get values tot calculate
-
-
-            var totaal = 0;
-
-            if (document.getElementById("1_wind").value === "" || document.getElementById("1_windV").value === "" || document.getElementById("1_TT").value === "" || document.getElementById("TAS").value === "") {
-                totaal =  0;
-                alert('Niet alle velden zijn ingevuld!');
-                document.getElementById("1_GS").value = totaal;
-
-            } else
-            {
-                var O1 = parseInt(document.getElementById("1_WCA").value);
-                var P1 = parseInt(document.getElementById("1_wind").value);
-                var Q1 = parseInt(document.getElementById("1_windV").value);
-                var R1 = parseInt(document.getElementById("1_TT").value);
-                var U3 = parseInt(document.getElementById("TAS").value); //header (same for all row)
+            if ([wind, windV, tt, tas].some(v => isNaN(v) || tas === 0)) {
+            el.value = '';
+            return;
             }
 
-            var verschil = P1 - R1;
-            var absO1 = Math.abs(O1);
-            var toRad = (deg) => deg * (Math.PI / 180);
+            // no “–180” here
+            const raw = (windV / tas) * Math.sin((wind - tt) * RAD);
 
-            if (verschil === 0 || Math.abs(verschil) === 360) {
-                totaal =  U3 - Q1;
-            } else if (verschil === -180 || verschil === 180) {
-                totaal = U3 + Q1;
-            } else if ((verschil > 180 && verschil < 360) || (verschil < 0 && verschil > -180)) {
-                totaal = U3 * Math.sin(toRad(-verschil - absO1)) / Math.sin(toRad(-verschil));
+            if (raw < -1 || raw > 1) {
+            el.value = '';  // out of range
             } else {
-                totaal = U3 * Math.sin(toRad(verschil - absO1)) / Math.sin(toRad(verschil));
+            el.value = Math.round(Math.asin(raw) * 180/Math.PI);
+            }
+        });
+        }
+
+        function distAcc() {
+            var distElems = document.querySelectorAll('input[id$="_distInt"]');
+            var legs = Array.from(distElems)
+                .map(el => parseInt(el.id.split('_')[0], 10))
+                .sort((a,b)=>a-b);
+            legs.forEach(function(leg) {
+                var di    = parseFloat(document.getElementById(leg + '_distInt').value);
+                var daElem= document.getElementById(leg + '_disAcc');
+                if (isNaN(di) || di === 0) {
+                    daElem.value = '';
+                } else {
+                    var acc = (leg === legs[0])
+                        ? di
+                        : parseFloat(document.getElementById((leg-1) + '_disAcc').value) + di;
+                    daElem.value = Math.round(acc);
+                }
+            });
+        }
+        
+        function GS(leg) {
+            const toRad = deg => deg * Math.PI/180;
+            const wind   = parseFloat(document.getElementById(leg + '_wind').value);
+            const windV  = parseFloat(document.getElementById(leg + '_windV').value);
+            const TT     = parseFloat(document.getElementById(leg + '_TT').value);
+            const TAS    = parseFloat(document.getElementById('TAS').value);
+            const WCA    = parseFloat(document.getElementById(leg + '_WCA').value);
+
+            if ([wind, windV, TT, TAS, WCA].some(v => isNaN(v)) || TAS === 0) {
+                alert ('Niet alle velden zijn ingevuld!')
+                document.getElementById(leg + '_GS').value = '';
+                return;
             }
 
-            document.getElementById("1_GS").value = totaal;
+            let gs;
+            const diff = wind - TT;
+            if (diff === 0 || Math.abs(diff) === 360) {
+                gs = TAS - windV;
+            } else if (Math.abs(diff) === 180) {
+                gs = TAS + windV;
+            } else if ((diff > 180 && diff < 360) || (diff < 0 && diff > -180)) {
+                gs = TAS * Math.sin(toRad(-diff - Math.abs(WCA))) / Math.sin(toRad(-diff));
+            } else {
+                gs = TAS * Math.sin(toRad(diff - Math.abs(WCA))) / Math.sin(toRad(diff));
+            }
 
+            document.getElementById(leg + '_GS').value = Math.ceil(gs);
         }
     </script>
 
@@ -794,70 +853,112 @@
             <td><input id="1_GS" type="text" style="background-color: #f2dcdb"/></td>
         </tr>
         <tr>
-            <td><input type="text" style="background-color: #b8cce4" value="2 &darr;" onclick="PutThroughLegInfo(2)" /></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input id="leg2Name" style="background-color: #b8cce4; width: 100%" type="text"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
+            <td>
+                <input
+                id="2_leg"
+                type="text"
+                style="background-color: #b8cce4"
+                value="2 ↓"
+                onclick="PutThroughLegInfo(2)"
+                />
+            </td>
+            <td><input id="2_timeAcc"  type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="2_timeInt"  type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="2_ETO"      type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="2_RETO"     type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="2_ATO"      type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="2_MEF"      type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="2_cruise"   type="text" style="background-color: #b8cce4"/></td>
+            <td>
+                <input
+                id="2_legName"
+                type="text"
+                style="background-color: #b8cce4; width:100%"
+                />
+            </td>
+            <td><input id="2_frequentie" type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="2_MH"        type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="2_var"       type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="2_TH"        type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="2_WCA"       type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="2_wind"      type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="2_windV"     type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="2_TT"        type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="2_distInt"   type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="2_disAcc"    type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="2_GS"        type="text" style="background-color: #e6b8b7"/></td>
         </tr>
         <tr>
-            <td><input type="text" value="3 &darr;" onclick="PutThroughLegInfo(3)" /></td>
-            <td><input type="text" style="background-color: #f2dcdb"/></td>
-            <td><input type="text" style="background-color: #f2dcdb"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text"/></td>
-            <td><input id="leg3Name" style="width: 100%" type="text"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text" style="background-color: #f2dcdb"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text" style="background-color: #f2dcdb"/></td>
-            <td><input type="text" style="background-color: #f2dcdb"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text" style="background-color: #f2dcdb"/></td>
-            <td><input type="text" style="background-color: #f2dcdb"/></td>
+            <td>
+                <input
+                id="3_leg"
+                type="text"
+                style="background-color: ..."
+                value="3 ↓"
+                onclick="PutThroughLegInfo(3)"
+                />
+            </td>
+            <td><input id="3_timeAcc"  type="text" style="background-color: #f2dcdb"/></td>
+            <td><input id="3_timeInt"  type="text" style="background-color: #f2dcdb"/></td>
+            <td><input id="3_ETO"      type="text"/></td>
+            <td><input id="3_RETO"     type="text"/></td>
+            <td><input id="3_ATO"      type="text"/></td>
+            <td><input id="3_MEF"      type="text"/></td>
+            <td><input id="3_cruise"   type="text"/></td>
+            <td>
+                <input
+                id="3_legName"
+                type="text"
+                style="width:100%"
+                />
+            </td>
+            <td><input id="3_frequentie" type="text"/></td>
+            <td><input id="3_MH"        type="text" style="background-color: #f2dcdb"/></td>
+            <td><input id="3_var"       type="text"/></td>
+            <td><input id="3_TH"        type="text" style="background-color: #f2dcdb"/></td>
+            <td><input id="3_WCA"       type="text" style="background-color: #f2dcdb"/></td>
+            <td><input id="3_wind"      type="text"/></td>
+            <td><input id="3_windV"     type="text"/></td>
+            <td><input id="3_TT"        type="text"/></td>
+            <td><input id="3_distInt"   type="text"/></td>
+            <td><input id="3_disAcc"    type="text" style="background-color: #f2dcdb"/></td>
+            <td><input id="3_GS"        type="text" style="background-color: #f2dcdb"/></td>
         </tr>
         <tr>
-            <td><input type="text" style="background-color: #b8cce4" value="4 &darr;" onclick="PutThroughLegInfo(4)" /></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input id="leg4Name" style="background-color: #b8cce4; width: 100%" type="text"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
+            <td>
+                <input
+                id="4_leg"
+                type="text"
+                style="background-color: #b8cce4"
+                value="4 ↓"
+                onclick="PutThroughLegInfo(4)"
+                />
+            </td>
+            <td><input id="4_timeAcc"  type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="4_timeInt"  type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="4_ETO"      type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="4_RETO"     type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="4_ATO"      type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="4_MEF"      type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="4_cruise"   type="text" style="background-color: #b8cce4"/></td>
+            <td>
+                <input
+                id="4_legName"
+                type="text"
+                style="background-color: #b8cce4; width:100%"
+                />
+            </td>
+            <td><input id="4_frequentie" type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="4_MH"        type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="4_var"       type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="4_TH"        type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="4_WCA"       type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="4_wind"      type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="4_windV"     type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="4_TT"        type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="4_distInt"   type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="4_disAcc"    type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="4_GS"        type="text" style="background-color: #e6b8b7"/></td>
         </tr>
     </table>
     <table id="table2" style="margin-top: 0px; border-top: 0">
@@ -911,10 +1012,8 @@
     <iframe style="display: none" id="1_60" src="../1_60/index.php" width="1250px" height="900px" frameborder="0" scrolling="no"></iframe>
 
     <footer>
-        Ontwikkeld door: Vinod / Getest door Frank
+        Ontwikkeld door: Vinod / Getest door Frank / Afgerond door Dani
     </footer>
 </article>
 </body>
 </html>
-
-
