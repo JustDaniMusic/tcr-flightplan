@@ -45,8 +45,8 @@
                 '<td><input id="'+leg+'_leg" style="background-color: ' + kleurBlauw + '" ' +
                 'type="text" value="' + (iRowCount - 1) + '↓" ' +
                 'onclick="PutThroughLegInfo('+leg+')"/></td>' +
-                '<td><input id="'+leg+'_timeAcc" type="text" style="background-color: ' + kleurRoze + '"/></td>' +
-                '<td><input id="'+leg+'_timeInt" type="text" style="background-color: ' + kleurRoze + '"/></td>' +
+                '<td><input id="'+leg+'_timeAcc" type="text" style="background-color: ' + kleurRoze + '" disabled/></td>' +
+                '<td><input id="'+leg+'_timeInt" type="text" style="background-color: ' + kleurRoze + '" disabled/></td>' +
                 '<td><input id="'+leg+'_ETO" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
                 '<td><input id="'+leg+'_RETO" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
                 '<td><input id="'+leg+'_ATO" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
@@ -55,16 +55,16 @@
                 '<td><input id="'+leg+'_legName" style="background-color: ' + kleurBlauw + '; width:100%" ' +
                 'type="text"/></td>' +
                 '<td><input id="'+leg+'_frequentie" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
-                '<td><input id="'+leg+'_MH" type="text" style="background-color: ' + kleurRoze + '"/></td>' +
+                '<td><input id="'+leg+'_MH" type="text" style="background-color: ' + kleurRoze + '" disabled/></td>' +
                 '<td><input id="'+leg+'_var" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
-                '<td><input id="'+leg+'_TH" type="text" style="background-color: ' + kleurRoze + '"/></td>' +
-                '<td><input id="'+leg+'_WCA" type="text" style="background-color: ' + kleurRoze + '"/></td>' +
+                '<td><input id="'+leg+'_TH" type="text" style="background-color: ' + kleurRoze + '" disabled/></td>' +
+                '<td><input id="'+leg+'_WCA" type="text" style="background-color: ' + kleurRoze + '" disabled/></td>' +
                 '<td><input id="'+leg+'_wind" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
                 '<td><input id="'+leg+'_windV" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
                 '<td><input id="'+leg+'_TT" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
                 '<td><input id="'+leg+'_distInt" type="text" style="background-color: ' + kleurBlauw + '"/></td>' +
-                '<td><input id="'+leg+'_disAcc" type="text" style="background-color: ' + kleurRoze + '"/></td>' +
-                '<td><input id="'+leg+'_GS" type="text" style="background-color: ' + kleurRoze + '"/></td>';
+                '<td><input id="'+leg+'_disAcc" type="text" style="background-color: ' + kleurRoze + '" disabled/></td>' +
+                '<td><input id="'+leg+'_GS" type="text" style="background-color: ' + kleurRoze + '" disabled/></td>';
         }
     </script>
     <script>
@@ -244,6 +244,11 @@
     <style>
         /* Micro Reset */
 
+        :root {
+            --primary-color: #bababa;
+            --secondary-color: #000000;
+        }
+
         html {
             font-size: 100%;
             -webkit-text-size-adjust: 100%;
@@ -256,6 +261,8 @@
         }
 
         body {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
             margin: 0;
             padding: 0;
             font-size: 80%;
@@ -833,9 +840,9 @@
             <td>GS</td>
         </tr>
         <tr>
-            <td><input type="text" value="1 &darr;" onclick="PutThroughLegInfo(1)" /></td>
-            <td><input id="1_timeAcc" type="text" style="background-color: #f2dcdb"/></td>
-            <td><input id="1_timeInt" type="text" style="background-color: #f2dcdb"/></td>
+            <td><input type="text" value="1 &darr;" onclick="PutThroughLegInfo(1)" disabled/></td>
+            <td><input id="1_timeAcc" type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td><input id="1_timeInt" type="text" style="background-color: #f2dcdb" disabled/></td>
             <td><input id="1_ETO" type="text"/></td>
             <td><input id="1_RETO" type="text"/></td>
             <td><input id="1_ATO" type="text"/></td>
@@ -843,16 +850,16 @@
             <td><input id="1_cruise" type="text"/></td>
             <td><input id="1_leg1Name" style="width: 100%" type="text"/></td>
             <td><input id="1_frequentie" type="text"/></td>
-            <td><input id="1_MH" type="text" style="background-color: #f2dcdb"/></td>
+            <td><input id="1_MH" type="text" style="background-color: #f2dcdb" disabled/></td>
             <td><input id="1_var" type="text"/></td>
-            <td><input id="1_TH" type="text" style="background-color: #f2dcdb"/></td>
-            <td><input id="1_WCA" type="text" style="background-color: #f2dcdb"/></td>
+            <td><input id="1_TH" type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td><input id="1_WCA" type="text" style="background-color: #f2dcdb" disabled/></td>
             <td><input id="1_wind" type="text"/></td>
             <td><input id="1_windV" type="text"/></td>
             <td><input id="1_TT" type="text"/></td>
             <td><input id="1_distInt" type="text"/></td>
-            <td><input id="1_disAcc" type="text" style="background-color: #f2dcdb"/></td>
-            <td><input id="1_GS" type="text" style="background-color: #f2dcdb"/></td>
+            <td><input id="1_disAcc" type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td><input id="1_GS" type="text" style="background-color: #f2dcdb" disabled/></td>
         </tr>
         <tr>
             <td>
@@ -862,10 +869,11 @@
                 style="background-color: #b8cce4"
                 value="2 ↓"
                 onclick="PutThroughLegInfo(2)"
+                disabled
                 />
             </td>
-            <td><input id="2_timeAcc"  type="text" style="background-color: #e6b8b7"/></td>
-            <td><input id="2_timeInt"  type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="2_timeAcc"  type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td><input id="2_timeInt"  type="text" style="background-color: #e6b8b7" disabled/></td>
             <td><input id="2_ETO"      type="text" style="background-color: #b8cce4"/></td>
             <td><input id="2_RETO"     type="text" style="background-color: #b8cce4"/></td>
             <td><input id="2_ATO"      type="text" style="background-color: #b8cce4"/></td>
@@ -876,19 +884,20 @@
                 id="2_legName"
                 type="text"
                 style="background-color: #b8cce4; width:100%"
+                disabled
                 />
             </td>
             <td><input id="2_frequentie" type="text" style="background-color: #b8cce4"/></td>
-            <td><input id="2_MH"        type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="2_MH"        type="text" style="background-color: #e6b8b7" disabled/></td>
             <td><input id="2_var"       type="text" style="background-color: #b8cce4"/></td>
-            <td><input id="2_TH"        type="text" style="background-color: #e6b8b7"/></td>
-            <td><input id="2_WCA"       type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="2_TH"        type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td><input id="2_WCA"       type="text" style="background-color: #e6b8b7" disabled/></td>
             <td><input id="2_wind"      type="text" style="background-color: #b8cce4"/></td>
             <td><input id="2_windV"     type="text" style="background-color: #b8cce4"/></td>
             <td><input id="2_TT"        type="text" style="background-color: #b8cce4"/></td>
             <td><input id="2_distInt"   type="text" style="background-color: #b8cce4"/></td>
-            <td><input id="2_disAcc"    type="text" style="background-color: #e6b8b7"/></td>
-            <td><input id="2_GS"        type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="2_disAcc"    type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td><input id="2_GS"        type="text" style="background-color: #e6b8b7" disabled/></td>
         </tr>
         <tr>
             <td>
@@ -898,10 +907,11 @@
                 style="background-color: ..."
                 value="3 ↓"
                 onclick="PutThroughLegInfo(3)"
+                disabled
                 />
             </td>
-            <td><input id="3_timeAcc"  type="text" style="background-color: #f2dcdb"/></td>
-            <td><input id="3_timeInt"  type="text" style="background-color: #f2dcdb"/></td>
+            <td><input id="3_timeAcc"  type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td><input id="3_timeInt"  type="text" style="background-color: #f2dcdb" disabled/></td>
             <td><input id="3_ETO"      type="text"/></td>
             <td><input id="3_RETO"     type="text"/></td>
             <td><input id="3_ATO"      type="text"/></td>
@@ -912,19 +922,20 @@
                 id="3_legName"
                 type="text"
                 style="width:100%"
+                disabled
                 />
             </td>
             <td><input id="3_frequentie" type="text"/></td>
-            <td><input id="3_MH"        type="text" style="background-color: #f2dcdb"/></td>
+            <td><input id="3_MH"        type="text" style="background-color: #f2dcdb" disabled/></td>
             <td><input id="3_var"       type="text"/></td>
-            <td><input id="3_TH"        type="text" style="background-color: #f2dcdb"/></td>
-            <td><input id="3_WCA"       type="text" style="background-color: #f2dcdb"/></td>
+            <td><input id="3_TH"        type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td><input id="3_WCA"       type="text" style="background-color: #f2dcdb" disabled/></td>
             <td><input id="3_wind"      type="text"/></td>
             <td><input id="3_windV"     type="text"/></td>
             <td><input id="3_TT"        type="text"/></td>
             <td><input id="3_distInt"   type="text"/></td>
-            <td><input id="3_disAcc"    type="text" style="background-color: #f2dcdb"/></td>
-            <td><input id="3_GS"        type="text" style="background-color: #f2dcdb"/></td>
+            <td><input id="3_disAcc"    type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td><input id="3_GS"        type="text" style="background-color: #f2dcdb" disabled/></td>
         </tr>
         <tr>
             <td>
@@ -934,10 +945,11 @@
                 style="background-color: #b8cce4"
                 value="4 ↓"
                 onclick="PutThroughLegInfo(4)"
+                disabled
                 />
             </td>
-            <td><input id="4_timeAcc"  type="text" style="background-color: #e6b8b7"/></td>
-            <td><input id="4_timeInt"  type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="4_timeAcc"  type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td><input id="4_timeInt"  type="text" style="background-color: #e6b8b7" disabled/></td>
             <td><input id="4_ETO"      type="text" style="background-color: #b8cce4"/></td>
             <td><input id="4_RETO"     type="text" style="background-color: #b8cce4"/></td>
             <td><input id="4_ATO"      type="text" style="background-color: #b8cce4"/></td>
@@ -951,23 +963,23 @@
                 />
             </td>
             <td><input id="4_frequentie" type="text" style="background-color: #b8cce4"/></td>
-            <td><input id="4_MH"        type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="4_MH"        type="text" style="background-color: #e6b8b7" disabled/></td>
             <td><input id="4_var"       type="text" style="background-color: #b8cce4"/></td>
-            <td><input id="4_TH"        type="text" style="background-color: #e6b8b7"/></td>
-            <td><input id="4_WCA"       type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="4_TH"        type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td><input id="4_WCA"       type="text" style="background-color: #e6b8b7" disabled/></td>
             <td><input id="4_wind"      type="text" style="background-color: #b8cce4"/></td>
             <td><input id="4_windV"     type="text" style="background-color: #b8cce4"/></td>
             <td><input id="4_TT"        type="text" style="background-color: #b8cce4"/></td>
             <td><input id="4_distInt"   type="text" style="background-color: #b8cce4"/></td>
-            <td><input id="4_disAcc"    type="text" style="background-color: #e6b8b7"/></td>
-            <td><input id="4_GS"        type="text" style="background-color: #e6b8b7"/></td>
+            <td><input id="4_disAcc"    type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td><input id="4_GS"        type="text" style="background-color: #e6b8b7" disabled/></td>
         </tr>
     </table>
     <table id="table2" style="margin-top: 0px; border-top: 0">
         <tr>
             <td><input type="text" /></td>
-            <td><input type="text" style="background-color: #f2dcdb"/></td>
-            <td><input type="text" style="background-color: #f2dcdb"/></td>
+            <td><input type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td><input type="text" style="background-color: #f2dcdb" disabled/></td>
             <td><input type="text"/></td>
             <td><input type="text"/></td>
             <td><input type="text"/></td>
@@ -975,21 +987,21 @@
             <td><input type="text"/></td>
             <td><input style="width: 100%" type="text" value="ALTERNATE"/></td>
             <td><input type="text"/></td>
-            <td><input type="text" style="background-color: #f2dcdb"/></td>
+            <td><input type="text" style="background-color: #f2dcdb" disabled/></td>
             <td><input type="text"/></td>
-            <td><input type="text" style="background-color: #f2dcdb"/></td>
-            <td><input type="text" style="background-color: #f2dcdb"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text"/></td>
+            <td><input type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td><input type="text" style="background-color: #f2dcdb" disabled/></td>
             <td><input type="text"/></td>
             <td><input type="text"/></td>
-            <td><input type="text" style="background-color: #f2dcdb"/></td>
-            <td><input type="text" style="background-color: #f2dcdb"/></td>
+            <td><input type="text"/></td>
+            <td><input type="text"/></td>
+            <td><input type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td><input type="text" style="background-color: #f2dcdb" disabled/></td>
         </tr>
         <tr>
             <td><input type="text" style="background-color: #b8cce4" /></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
+            <td><input type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td><input type="text" style="background-color: #e6b8b7" disabled/></td>
             <td><input type="text" style="background-color: #b8cce4"/></td>
             <td><input type="text" style="background-color: #b8cce4"/></td>
             <td><input type="text" style="background-color: #b8cce4"/></td>
@@ -997,16 +1009,16 @@
             <td><input type="text" style="background-color: #b8cce4"/></td>
             <td><input style="background-color: #b8cce4; width: 100%" type="text"/></td>
             <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
+            <td><input type="text" style="background-color: #e6b8b7" disabled/></td>
             <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
+            <td><input type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td><input type="text" style="background-color: #e6b8b7" disabled/></td>
             <td><input type="text" style="background-color: #b8cce4"/></td>
             <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
-            <td><input type="text" style="background-color: #e6b8b7"/></td>
+            <td><input type="text" style="background-color: #b8cce4"/></td>
+            <td><input type="text" style="background-color: #b8cce4"/></td>
+            <td><input type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td><input type="text" style="background-color: #e6b8b7" disabled/></td>
         </tr>
     </table>
 
