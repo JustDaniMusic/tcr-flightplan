@@ -2,7 +2,7 @@
 
 Check the commits for the changes i've done to the project!
 
-==
+
 
 # Een project voor Techniek College Rotterdam
 
