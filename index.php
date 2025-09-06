@@ -977,48 +977,65 @@
     </table>
     <table id="table2" style="margin-top: 0px; border-top: 0">
         <tr>
-            <td><input type="text" /></td>
-            <td><input type="text" style="background-color: #f2dcdb" disabled/></td>
-            <td><input type="text" style="background-color: #f2dcdb" disabled/></td>
-            <td><input type="text"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text"/></td>
-            <td><input style="width: 100%" type="text" value="ALTERNATE"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text" style="background-color: #f2dcdb" disabled/></td>
-            <td><input type="text"/></td>
-            <td><input type="text" style="background-color: #f2dcdb" disabled/></td>
-            <td><input type="text" style="background-color: #f2dcdb" disabled/></td>
-            <td><input type="text"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text"/></td>
-            <td><input type="text" style="background-color: #f2dcdb" disabled/></td>
-            <td><input type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td>
+                <input
+                    id="5_leg"
+                    type="text"
+                    value=""
+                    onclick="PutThroughLegInfo(5)"
+                    disabled
+                />
+            </td>
+            <td><input id="5_timeAcc" type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td><input id="5_timeInt" type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td><input id="5_ETO" type="text"/></td>
+            <td><input id="5_RETO" type="text"/></td>
+            <td><input id="5_ATO" type="text"/></td>
+            <td><input id="5_MEF" type="text"/></td>
+            <td><input id="5_cruise" type="text"/></td>
+            <td><input id="5_legName" style="width: 100%" type="text" value="ALTERNATE"/></td>
+            <td><input id="5_frequentie" type="text"/></td>
+            <td><input id="5_MH" type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td><input id="5_var" type="text"/></td>
+            <td><input id="5_TH" type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td><input id="5_WCA" type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td><input id="5_wind" type="text"/></td>
+            <td><input id="5_windV" type="text"/></td>
+            <td><input id="5_TT" type="text"/></td>
+            <td><input id="5_distInt" type="text"/></td>
+            <td><input id="5_disAcc" type="text" style="background-color: #f2dcdb" disabled/></td>
+            <td><input id="5_GS" type="text" style="background-color: #f2dcdb" disabled/></td>
         </tr>
         <tr>
-            <td><input type="text" style="background-color: #b8cce4" /></td>
-            <td><input type="text" style="background-color: #e6b8b7" disabled/></td>
-            <td><input type="text" style="background-color: #e6b8b7" disabled/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input style="background-color: #b8cce4; width: 100%" type="text"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #e6b8b7" disabled/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #e6b8b7" disabled/></td>
-            <td><input type="text" style="background-color: #e6b8b7" disabled/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #b8cce4"/></td>
-            <td><input type="text" style="background-color: #e6b8b7" disabled/></td>
-            <td><input type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td>
+                <input
+                    id="6_leg"
+                    type="text"
+                    style="background-color: #b8cce4"
+                    value=""
+                    onclick="PutThroughLegInfo(6)"
+                    disabled
+                />
+            </td>
+            <td><input id="6_timeAcc" type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td><input id="6_timeInt" type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td><input id="6_ETO" type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="6_RETO" type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="6_ATO" type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="6_MEF" type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="6_cruise" type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="6_legName" type="text" style="background-color: #b8cce4; width: 100%"/></td>
+            <td><input id="6_frequentie" type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="6_MH" type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td><input id="6_var" type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="6_TH" type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td><input id="6_WCA" type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td><input id="6_wind" type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="6_windV" type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="6_TT" type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="6_distInt" type="text" style="background-color: #b8cce4"/></td>
+            <td><input id="6_disAcc" type="text" style="background-color: #e6b8b7" disabled/></td>
+            <td><input id="6_GS" type="text" style="background-color: #e6b8b7" disabled/></td>
         </tr>
     </table>
 
